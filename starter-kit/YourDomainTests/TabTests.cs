@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Edument.CQRS;
+using Events.Tab;
 using NUnit.Framework;
 using YourDomain.Tab;
 
@@ -33,7 +34,7 @@ namespace YourDomainTests
 					TableNumber = testTable,
 					Waiter = testWaiter
 				}), Then(
-				new OpenTab()
+				new TabOpened()
 				{
 					Id = testId,
 					TableNumber = testTable,
