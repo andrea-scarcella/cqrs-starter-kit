@@ -14,6 +14,7 @@ namespace YourDomainTests
 		private Guid testId;
 		private int testTable;
 		private string testWaiter;
+		private OrderedItem testDrink1;
 
 		[SetUp]
 		public void Setup()
@@ -21,6 +22,7 @@ namespace YourDomainTests
 			testId = Guid.NewGuid();
 			testTable = 42;
 			testWaiter = "Derek";
+			testDrink1 = new OrderedItem() { Description = "drink", IsDrink = true, MenuNumber = 0, Price = 1.0m };
 		}
 		[Test]
 		public void CanOpenANewTab()
@@ -40,6 +42,18 @@ namespace YourDomainTests
 					TableNumber = testTable,
 					Waiter = testWaiter
 				}));
+		}
+
+		[Test]
+		public void CanNotOrderWithUnopenedTab()
+		{
+			Test(Given(),
+				When(new PlaceOrder()
+				{
+					Id = testId,
+					Items = new List<OrderedItem>() { testDrink1 }
+				}), ThenFailWith<TabNotOpen>());
+
 		}
 	}
 }

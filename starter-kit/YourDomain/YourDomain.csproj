@@ -46,8 +46,10 @@
     <Compile Include="Something\SomethingAggregate.cs" />
     <Compile Include="Something\SomethingCommandHandlers.cs" />
     <Compile Include="Tab\OpenTab.cs" />
+    <Compile Include="Tab\PlaceOrder.cs" />
     <Compile Include="Tab\TabAggregate.cs" />
     <Compile Include="Tab\TabCommandHandlers.cs" />
+    <Compile Include="Tab\TabNotOpen.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Edument.CQRS\Edument.CQRS.csproj">
